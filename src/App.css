@@ -1,38 +1,217 @@
+:root {
+  --bgBlue: #385898;
+  --fontHeader: #ffffff;
+  --boxLeftCorner: #d0d0d0;
+  --boxRightCorner: #f0f0f0;
+  --fontFamily: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  --bgcolorStat: #e9e9e9;
+  --fontStat: #000000;
+  --bgButtonRed: #ec6464;
+  --bgInputGray: #b4b4b6;
+}
+Body {
+  font-family: var(--fontFamily);
+}
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.divCenter {
+  text-align: center;
+  margin: auto;
+  padding: 5%;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.statDiv {
+  min-height: 2vh;
 }
-
+.mainDiv {
+  min-height: 2vh;
+}
+.buttonsDiv {
+  margin: 2vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.DonateForm {
+  padding: 5%;
+}
+.inputGray {
+  background-color: var(--bgInputGray);
+  color: var(--fontHeader);
+  border-radius: 3px 3px 3px 3px;
+  width: calc(250px + 2vmin);
+}
+.formLables {
+  font-size: calc(15px + 2vmin);
+  color: var(--bgButtonRed);
+}
+.btnRedSmall {
+  cursor: pointer;
+  background-color: var(--bgButtonRed);
+  color: var(--fontHeader);
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px 8px 8px 8px;
+}
+.btnRed {
+  cursor: pointer;
+  background-color: var(--bgButtonRed);
+  color: var(--fontHeader);
+  margin: 2vw;
+  height: 10vw;
+  width: 40vw;
+  padding: 3%;
+  font-size: calc(15px + 2vmin);
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px 8px 8px 8px;
+}
+.btnRedDouble {
+  cursor: pointer;
+  background-color: var(--bgButtonRed);
+  color: var(--fontHeader);
+  margin: auto;
+  height: 5vw;
+  width: 80vw;
+  padding: 3%;
+  font-size: calc(15px + 2vmin);
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px 8px 8px 8px;
+}
+.topFie {
+  text-align: left;
+  padding: 3%;
+}
+.legendDelivery {
+  margin: auto;
+  width: calc(250px + 2vmin);
+}
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: var(--bgBlue);
+  /* min-height: calc(35px+2vmin); */
+  min-height: 15vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px 8px 0 0;
+}
+.homeIcon {
+  cursor: pointer;
+  color: var(--fontHeader);
+}
+.title {
+  font-size: calc(9px + 2vmin);
+  color: var(--fontHeader);
+}
+.App-footer {
+  background-color: var(--bgBlue);
+  color: var(--fontHeader);
+  /* min-height: calc(22px+2vmin); */
+  min-height: 5vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0 8px 8px;
+}
+.box {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 2vw;
+  height: 40vw;
+  width: 40vw;
+  padding: 3%;
+  color: var(--bgBlue);
+  font-size: calc(25px + 2vmin);
+  border-radius: 28px;
+  background-color: var(--fontHeader);
+  box-shadow: 19px 19px 32px var(--boxLeftCorner),
+    -19px -19px 32px var(--boxRightCorner);
 }
-
-.App-link {
-  color: #61dafb;
+.boxStat {
+  /* margin: 2vw; */
+  text-align: center;
+  height: calc(35px + 2vmin);
+  width: calc(45px + 2vmin);
+  padding: 3%;
+  background-color: var(--bgcolorStat);
+  font-size: calc(25px + 2vmin);
+  border-radius: 8px;
+  color: var(--fontStat);
+  align-items: center;
+  justify-content: center;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.statesticsTitle {
+  padding: 3%;
+  color: var(--bgBlue);
+  font-size: calc(25px + 2vmin);
+}
+.statDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  /* height: 50vh; */
+}
+@media (min-width: 650px) {
+  .App {
+    max-width: 1280px;
+    margin: auto;
   }
-  to {
-    transform: rotate(360deg);
+  .mainDiv {
+    min-height: 1vh;
+  }
+  .btnRedSmall {
+    cursor: pointer;
+    background-color: var(--bgButtonRed);
+    color: var(--fontHeader);
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px 8px 8px 8px;
+    margin: auto;
+    width: 15vw;
+  }
+  .box {
+    margin: 2vw;
+    height: 15vh;
+    width: 40vw;
+    padding: 3%;
+    color: var(--bgBlue);
+    font-size: calc(25px + 2vmin);
+    border-radius: 28px;
+    background-color: var(--fontHeader);
+    box-shadow: 19px 19px 32px var(--boxLeftCorner),
+      -19px -19px 32px var(--boxRightCorner);
+  }
+  .boxStat {
+    /* margin: 2vw; */
+    text-align: center;
+    height: 5vw;
+    width: 5vw;
+    padding: 3%;
+    background-color: var(--bgcolorStat);
+    font-size: calc(25px + 2vmin);
+    border-radius: 8px;
+    color: var(--fontStat);
+    align-items: center;
+    justify-content: center;
+  }
+  .btnRedDouble {
+    cursor: pointer;
+    background-color: var(--bgButtonRed);
+    color: var(--fontHeader);
+    margin: auto;
+    height: 5vw;
+    width: 60vw;
+    padding: 3%;
+    font-size: calc(15px + 2vmin);
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px 8px 8px 8px;
   }
 }
