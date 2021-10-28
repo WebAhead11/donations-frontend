@@ -1,16 +1,25 @@
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-
+import React from "react";
 // const DonatesNum = 100;
 const takedItems = 10;
 const Home = () => {
+  const [hassan, setHassan] = React.useState(null);
   const history = useHistory();
-  const DonatesNum = () => {
-    axios.get(process.env.REACT_APP_API_URL + "/deliveredItems").then((res) => {
-      console.log(res);
-    });
-  };
 
+  const DonatesNum = () => {
+    axios
+      .get(process.env.REACT_APP_API_URL + "/deliveredItems")
+      .then((res) => {
+        setHassan(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  React.useEffect(() => {
+    DonatesNum();
+  }, []);
   // const takedItems = () => {};
   return (
     <div className="mainDiv">
@@ -18,7 +27,7 @@ const Home = () => {
       <div className="statDiv">
         <div className="box">
           Donates
-          <div className="boxStat">{DonatesNum()}</div>
+          <div className="boxStat">{hassan}</div>
         </div>
         <div className="box">
           Taken
