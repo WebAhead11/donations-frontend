@@ -2,16 +2,40 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import React from "react";
 // const DonatesNum = 100;
-const takedItems = 10;
+
 const Home = () => {
-  const [hassan, setHassan] = React.useState(null);
+  const [donatesCounter, setDonatesCounter] = React.useState(null);
+  const [takedItems, setTakedItems] = React.useState(null);
+  const [lastFiveDonates, setLastFiveDonates] = React.useState([]);
+
   const history = useHistory();
 
-  const DonatesNum = () => {
+  const TakenNum = () => {
     axios
       .get(process.env.REACT_APP_API_URL + "/deliveredItems")
       .then((res) => {
-        setHassan(res.data);
+        setTakedItems(res.data.rows[0].count);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const DonatesNum = () => {
+    axios
+      .get(process.env.REACT_APP_API_URL + "/totalDonations")
+      .then((res) => {
+        setDonatesCounter(res.data.rows[0].count);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const GetLastFive = () => {
+    axios
+      .get(process.env.REACT_APP_API_URL + "/latestItems")
+      .then((res) => {
+        setLastFiveDonates(res.data.rows);
       })
       .catch((err) => {
         console.log(err);
@@ -19,15 +43,17 @@ const Home = () => {
   };
   React.useEffect(() => {
     DonatesNum();
+    TakenNum();
+    GetLastFive();
   }, []);
-  // const takedItems = () => {};
+
   return (
     <div className="mainDiv">
       <div className="statesticsTitle">People just love Giving</div>
       <div className="statDiv">
         <div className="box">
           Donates
-          <div className="boxStat">{hassan}</div>
+          <div className="boxStat">{donatesCounter}</div>
         </div>
         <div className="box">
           Taken
@@ -55,11 +81,9 @@ const Home = () => {
       <div className="topFie">
         <h2>Last Five Donates</h2>
         <ul>
-          <li>T-shirt polo</li>
-          <li>tv 33 lg</li>
-          <li>3 charis</li>
-          <li>table for 6 persons</li>
-          <li>hand made bag</li>
+          {lastFiveDonates.map((title) => {
+            return <li>{title.item_title}</li>;
+          })}
         </ul>
       </div>
       <div className="divCenter">

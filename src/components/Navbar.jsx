@@ -45,15 +45,20 @@ function Navbar() {
 
   return (
     <div className="App-header">
-      {navbarControl.homeButton && (
-        <HomeIcon
-          className="homeIcon"
-          onClick={() => {
-            history.push("/");
-          }}
-        />
-      )}
-      <h1 className="title"> {navbarControl.text}</h1>
+      <div>
+        {navbarControl.homeButton && (
+          <HomeIcon
+            className="homeIcon"
+            onClick={() => {
+              history.push("/");
+            }}
+          />
+        )}
+      </div>
+      <div>
+        <h1 className="title"> {navbarControl.text}</h1>
+      </div>
+      <div>&nbsp;</div>
     </div>
   );
 }
