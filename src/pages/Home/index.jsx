@@ -1,7 +1,6 @@
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import React from "react";
-// const DonatesNum = 100;
 
 const Home = () => {
   const [donatesCounter, setDonatesCounter] = React.useState(null);
