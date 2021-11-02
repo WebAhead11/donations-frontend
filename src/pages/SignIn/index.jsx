@@ -11,7 +11,7 @@ const SignIn = () => {
       email: emailState,
     };
     axios
-      .get(process.env.REACT_APP_API_URL + "/donationsNumber", emailTocheck)
+      .post(process.env.REACT_APP_API_URL + "/donationsNumber", emailTocheck)
       .then((res) => {
         console.log(
           res,
