@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import EmailIcon from "@mui/icons-material/Email";
+import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 
 const Donation = (props) => {
   const kind = props.kind;
@@ -10,17 +12,26 @@ const Donation = (props) => {
       return <div>my list</div>;
     }
     if (kind === "search") {
-      return <div>search</div>;
+      return (
+        <div>
+          <div>
+            <EmailIcon />
+          </div>
+          <div>
+            <PhoneAndroidIcon />
+          </div>
+        </div>
+      );
     }
   };
 
-  console.log(kind);
-  const donations = props.donation;
+  // console.log(kind);
+  const donations = props.data;
   return (
     <div className="donations">
       {donations.map((donation) => (
         <div className="donationData" key={donation.id}>
-          <h2>{donation.title}</h2>
+          <h2>{donation.item_title}</h2>
           <div>{donation.descriptions}</div>
           {divFooter(donation)}
         </div>

@@ -9,18 +9,16 @@ const SignIn = () => {
     e.preventDefault();
     const emailTocheck = {
       email: emailState,
+      kind: "list",
     };
     axios
       .post(process.env.REACT_APP_API_URL + "/donationsNumber", emailTocheck)
       .then((res) => {
-        console.log(
-          res,
-          " the number is ",
-          res.data,
-          " for email ",
-          emailState
-        );
-        //history.push("/Donations");
+        if (res.data > 0) {
+          history.push("/donations", emailTocheck);
+        } else {
+          setMsgState("We didn't find records on this email");
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -28,6 +26,7 @@ const SignIn = () => {
   };
 
   const [emailState, setEmailState] = useState("");
+  const [msgState, setMsgState] = useState("");
   return (
     <div className="mainDiv">
       <form onSubmit={sendForm}>
@@ -55,6 +54,7 @@ const SignIn = () => {
               Sign In
             </button>
           </div>
+          <div className="alertDiv">{msgState}</div>
         </div>
       </form>
     </div>

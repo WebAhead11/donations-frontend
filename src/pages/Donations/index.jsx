@@ -1,11 +1,11 @@
 import DonationsList from "../../components/DonationsList";
+import { useLocation } from "react-router-dom";
 
 const Donations = () => {
-  //here we handle the fetch to get the data from the api by the kind of process (by props)
+  let locationNow = useLocation();
   return (
     <div className="MainDiv">
-      {/* <DonationsList data={data} kind={props.kindOfList}></DonationsList> */}
-      <DonationsList></DonationsList>
+      <DonationsList data={locationNow.state}></DonationsList>
     </div>
   );
 };

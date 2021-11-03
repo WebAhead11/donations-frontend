@@ -3,8 +3,6 @@ import axios from "axios";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import DeliveryDiningIcon from "@mui/icons-material/DeliveryDining";
-import EmailIcon from "@mui/icons-material/Email";
-import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 import { DonutLargeSharp } from "@mui/icons-material";
 
 const Donate = () => {
@@ -133,7 +131,7 @@ const Donate = () => {
             <option value="books">Books</option>
             <option value="health">Health</option>
             <option value="video-games">Video Games</option>
-            <option value="furmi">Furmi</option>
+            <option value="furni">Furni</option>
             <option value="electronics">Electronics</option>
             <option value="other">Other</option>
           </select>
